@@ -46,38 +46,37 @@ table {
 
 /* Reset */
 
-.container {
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+body {
 	background-image: url(images/bg.png);
 }
 
-#anim {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	background-color: #9BE8FF;
-	animation-name: breathe;
-	transform: scale(2);
-	animation: breathe alternate infinite;
-	animation-duration: 4s;
+.container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between
 }
 
-@keyframes breathe {
-	from { transform: scale(2); }
-	to { transform: scale(0.2); }
-/*	from { width: 200px; height: 200px; border-radius: 100px; }
-	to { width: 25px; height: 25px; border-radius: 12.5px; }*/
-
+#anim {
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	border-radius: 50%;
+	background-color: #9BE8FF;
 }
 
 .slider {
+	width: 300px;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
-	margin-top: 100px;
+}
+
+.end {
+	width: 300px;
+}
+
+#time {
+	display: inline;
 }
