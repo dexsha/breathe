@@ -8,18 +8,31 @@
 	</head>
 	<body>
 		<div class="container">
+			<section class="slider">
+				Breathe in: <input type="range" min="1" max="10" value="1" id="breatheIn">
+				<span id="breatheInText"></span>
+				
+				Breathe in pause:<input type="range" min="1" max="10" value="5" id="breatheInPause">
+				<span id="breatheInPauseText"></span>
+
+				Breathe out: <input type="range" min="1" max="10" value="3" id="breatheOut">
+				<span id="breatheOutText"></span>
+				
+				Breathe out pause:<input type="range" min="1" max="10" value="5" id="breatheOutPause">
+				<span id="breatheOutPauseText"></span>
+				
+				Size: <input type="range" min="1" max="400" value="100" id="size">
+				<span id="sizeText"></span>
+			</section>
 
 			<section class="breathe">
 				<div id="anim"></div>
 			</section>
 
-			<section class="slider">
-				<input type="range" min="1" max="10" value="5" id="timer">
-				<span id="time"></span>
+			<section class="end">
 			</section>
-
 		</div>
-
-			<script src="script.js"></script>
+		<script src="anime.min.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>
