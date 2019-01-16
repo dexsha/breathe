@@ -16,63 +16,55 @@ breatheOutPauseText.innerHTML = breatheOutPause.value  + "s";
 
 let size = document.getElementById("size");
 let sizeText = document.getElementById("sizeText");
-sizeText.innerHTML = size.value;
+sizeText.innerHTML = (size.value * 4) + "px";
 
-size.oninput = function() {
-	sizeText.innerHTML = this.value;
-	document.getElementById("anim").style.width = this.value + "px";
-	document.getElementById("anim").style.height = this.value + "px";
-}
-
+//	Initializes anime.js
 let animation = anime({
   targets: '#anim',
   scale: [
-  	{ value: 3, duration: (breatheIn.value * 1000), delay: (breatheOutPause.value * 1000)},
+  	{ value: 4, duration: (breatheIn.value * 1000), delay: (breatheOutPause.value * 1000)},
   	{ value: 1, duration: (breatheOut.value * 1000), delay: (breatheInPause.value * 1000)}
   ],
   loop: true,
   easing: 'linear'
 });
 
-let breatheInAnimation = animation.animations[0].tweens[0];
-let breatheOutAnimation = animation.animations[0].tweens[1];
-
-// breatheIn.oninput = function() {
-// 	breatheInText.innerHTML = this.value + "s";
-// 	document.getElementById("anim").style.animationDuration = this.value + "s";
-// 	breatheInAnimation.duration = (this.value * 1000);
-// 	breatheInAnimation.end = (this.value * 1000 + breatheInAnimation.delay + breatheInAnimation.endDelay);
-// 	breatheOutAnimation.start = (this.value * 1000 + breatheInAnimation.delay + breatheInAnimation.endDelay);
-// 	animation.duration = (this.value * 1000 + breatheInAnimation.delay + breatheInAnimation.endDelay + breatheOutAnimation.duration + breatheOutAnimation.delay + breatheOutAnimation.endDelay);
-// }
-
-function breathe() {
+function setSliderValues(){
 	breatheInText.innerHTML = breatheIn.value + "s";
 	breatheInPauseText.innerHTML = breatheInPause.value + "s";
 	breatheOutText.innerHTML = breatheOut.value + "s";
-	breatheOutPauseText.innerHTML = breatheOutPause.value  + "s";
-	breatheInAnimation.delay = breatheOutPause.value * 1000;
+	breatheOutPauseText.innerHTML = breatheOutPause.value  + "s";	
+}
+
+function setAnimationValues(){
+	let breatheInAnimation = animation.animations[0].tweens[0];
+	let breatheOutAnimation = animation.animations[0].tweens[1];
+
+	breatheInAnimation.delay = (breatheOutPause.value * 1000);
 	breatheInAnimation.duration = (breatheIn.value * 1000);
-	breatheInAnimation.end = (breatheIn.value * 1000 + breatheOutPause.value * 1000);
+	breatheInAnimation.end = ((breatheIn.value * 1000) + (breatheOutPause.value * 1000));
+
 	breatheOutAnimation.start = ((breatheIn.value * 1000) + (breatheOutPause.value * 1000));
 	breatheOutAnimation.duration = (breatheOut.value * 1000);
 	breatheOutAnimation.delay = (breatheInPause.value * 1000);
 	breatheOutAnimation.end = ((breatheOut.value * 1000) + (breatheInPause.value * 1000) + (breatheIn.value * 1000) + (breatheOutPause.value * 1000));
-	animation.duration = (breatheIn.value * 1000 + breatheInPause.value * 1000 + (breatheOut.value * 1000) + (breatheInPause.value * 1000));
+
+	animation.duration = ((breatheIn.value * 1000) + (breatheInPause.value * 1000) + (breatheOut.value * 1000) + (breatheOutPause.value * 1000));
+}
+
+function setAnimationSize(){
+	sizeText.innerHTML = (size.value * 4) + "px";
+	document.getElementById("anim").style.width = size.value + "px";
+	document.getElementById("anim").style.height = size.value + "px";
 }
 
 let sliders = document.querySelector(".sliders");
-sliders.addEventListener("input", doSomething, false);
+sliders.addEventListener("input", setValues, false);
 
-// function doSomething(e) {
-// 	if(e.target !== e.currentTarget) {
-// 		let clickedSlider = e.target.id;
-// 		console.log(breatheIn.value);
-// 	}
-// }
-
-function doSomething(e) {
+function setValues(e){
 	if(e.target !== e.currentTarget) {
-		breathe();
+		setSliderValues();
+		setAnimationValues();
+		setAnimationSize();
 	}
 }
