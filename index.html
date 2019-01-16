@@ -9,20 +9,35 @@
 	<body>
 		<div class="container">
 			<section class="sliders">
-				Breathe in: <input type="range" min="1" max="10" value="1" id="breatheIn">
-				<span id="breatheInText"></span>
+				<div class="sliderLabels">
+					<span class="sliderText">Breathe in</span>
+					<span id="breatheInText" class="sliderValueText"></span>
+				</div>
+				<input type="range" min="1" max="10" value="1" id="breatheIn" class="actualSlider">
 				
-				Breathe in pause:<input type="range" min="0" max="10" value="0" id="breatheInPause">
-				<span id="breatheInPauseText"></span>
+				<div class="sliderLabels">
+					<span class="sliderText">Pause</span>
+					<span id="breatheInPauseText" class="sliderValueText"></span>
+				</div>
+				<input type="range" min="0" max="10" value="0" id="breatheInPause" class="actualSlider">
 
-				Breathe out: <input type="range" min="1" max="10" value="3" id="breatheOut">
-				<span id="breatheOutText"></span>
-				
-				Breathe out pause:<input type="range" min="0" max="10" value="0" id="breatheOutPause">
-				<span id="breatheOutPauseText"></span>
-				
-				Size: <input type="range" min="1" max="400" value="100" id="size">
-				<span id="sizeText"></span>
+				<div class="sliderLabels">
+					<span class="sliderText">Breathe out</span> 
+					<span id="breatheOutText" class="sliderValueText"></span>
+				</div>
+				<input type="range" min="1" max="10" value="3" id="breatheOut" class="actualSlider">
+
+				<div class="sliderLabels">
+					<span class="sliderText">Pause</span>
+					<span id="breatheOutPauseText" class="sliderValueText"></span>
+				</div>
+				<input type="range" min="0" max="10" value="0" id="breatheOutPause" class="actualSlider">
+
+				<div class="sliderLabels">
+					<span class="sliderText">Size</span> 
+					<span id="sizeText" class="sliderValueText"></span>
+				</div>
+				<input type="range" min="1" max="400" value="50" id="size" class="actualSlider">
 			</section>
 
 			<section class="breathe">
