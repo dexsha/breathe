@@ -1,5 +1,6 @@
-/* Reset */
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
+/* Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,14 +48,16 @@ table {
 /* Reset */
 
 body {
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	font-size: 1em;
 	background-image: url(images/bg.png);
 }
 
 .container {
-	height: 100vh;
 	display: flex;
 	align-items: center;
-	justify-content: space-between
+	justify-content: space-between;
+	height: 100vh;
 }
 
 #anim {
@@ -66,17 +69,45 @@ body {
 }
 
 .sliders {
-	width: 300px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
+	width: 300px;
+}
+
+.sliderLabels {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 50%;
+	margin: 0 0 10px 0;
+}
+
+.actualSlider {
+	margin: 0 0 10px 0;
 }
 
 .end {
 	width: 300px;
 }
 
-#time {
-	display: inline;
+input[type=range] {
+  -webkit-appearance: none;
+  width: 50%;
+  border-radius: 8px;
+  height: 5px;
+  border: 1px solid #bdc3c7;
+  background-color: #fff; 
+  outline: 0px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 17px;
+  height: 17px;
+  border-radius: 10px;
+  cursor: pointer;
 }
