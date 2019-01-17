@@ -68,3 +68,11 @@ function setValues(e){
 		setAnimationSize();
 	}
 }
+
+let sidebar = document.querySelector('.sidebar');
+let sidebarToggle = document.querySelector('.sidebarToggle');
+
+sidebarToggle.addEventListener('click', function() {
+	sidebarToggle.classList.toggle('is-closed');
+	sidebar.classList.toggle('is-closed');
+})
