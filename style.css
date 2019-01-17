@@ -54,16 +54,57 @@ body {
 }
 
 .container {
-	display: flex;
+/*	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	height: 100vh;*/
+}
+
+.sidebar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	z-index: 1;
+	width: 300px;
+	height: 100%;
+	background-color: #F1F1F1;
+	transition: .7s;
+}
+
+.sidebar.is-closed {
+	transform: translateX(-300px);
+}
+
+.sidebarToggle {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	font-size: 40px;
+	color: #C6C6C6;
+}
+
+.sidebarToggle.is-closed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 310px;
+	font-size: 40px;
+	color: #C6C6C6;
+}
+
+.breathe {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
 	height: 100vh;
+	margin: auto;
 }
 
 #anim {
 	width: 50px;
 	height: 50px;
-	margin: auto;
 	border-radius: 50%;
 	background-color: #9BE8FF;
 }
@@ -76,7 +117,7 @@ body {
 	width: 300px;
 }
 
-.sliderLabels {
+.sliderLabel {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -88,8 +129,14 @@ body {
 	margin: 0 0 10px 0;
 }
 
-.end {
-	width: 300px;
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 input[type=range] {
