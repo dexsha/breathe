@@ -1,21 +1,32 @@
+let settings = {
+	values: ["3", "0", "5", "0", "50"],	//	"breatheIn", "breatheInPause", "breatheOut", "breatheOutPause", "size"
+};
+
+loadFromLocalStorage();
+
 let breatheIn = document.getElementById("breatheIn");
 let breatheInText = document.getElementById("breatheInText");
+breatheIn.value = settings.values[0];
 breatheInText.innerHTML = breatheIn.value + "s";
 
 let breatheInPause = document.getElementById("breatheInPause");
 let breatheInPauseText = document.getElementById("breatheInPauseText");
+breatheInPause.value = settings.values[1];
 breatheInPauseText.innerHTML = breatheInPause.value  + "s";
 
 let breatheOut = document.getElementById("breatheOut");
 let breatheOutText = document.getElementById("breatheOutText");
+breatheOut.value = settings.values[2];
 breatheOutText.innerHTML = breatheOut.value + "s";
 
 let breatheOutPause = document.getElementById("breatheOutPause");
 let breatheOutPauseText = document.getElementById("breatheOutPauseText");
+breatheOutPause.value = settings.values[3];
 breatheOutPauseText.innerHTML = breatheOutPause.value  + "s";
 
 let size = document.getElementById("size");
 let sizeText = document.getElementById("sizeText");
+size.value = settings.values[4];
 sizeText.innerHTML = (size.value * 4) + "px";
 
 //	Initializes anime.js
@@ -29,6 +40,11 @@ let animation = anime({
   easing: 'linear'
 });
 
+function saveSettings(){
+	settings.values = [breatheIn.value, breatheInPause.value, breatheOut.value, breatheOutPause.value, size.value];
+	saveToLocalStorage();
+}
+
 function setSliderValues(){
 	breatheInText.innerHTML = breatheIn.value + "s";
 	breatheInPauseText.innerHTML = breatheInPause.value + "s";
@@ -40,8 +56,8 @@ function setAnimationValues(){
 	let breatheInAnimation = animation.animations[0].tweens[0];
 	let breatheOutAnimation = animation.animations[0].tweens[1];
 
-	breatheInAnimation.delay = (breatheOutPause.value * 1000);
 	breatheInAnimation.duration = (breatheIn.value * 1000);
+	breatheInAnimation.delay = (breatheOutPause.value * 1000);
 	breatheInAnimation.end = ((breatheIn.value * 1000) + (breatheOutPause.value * 1000));
 
 	breatheOutAnimation.start = ((breatheIn.value * 1000) + (breatheOutPause.value * 1000));
@@ -66,6 +82,7 @@ function setValues(e){
 		setSliderValues();
 		setAnimationValues();
 		setAnimationSize();
+		saveSettings();
 	}
 }
 
@@ -76,3 +93,16 @@ sidebarToggle.addEventListener('click', function() {
 	sidebarToggle.classList.toggle('is-closed');
 	sidebar.classList.toggle('is-closed');
 })
+
+function saveToLocalStorage(){
+	let str = JSON.stringify(settings.values);
+	localStorage.setItem("settings", str);
+}
+
+function loadFromLocalStorage(){
+	let str = localStorage.getItem("settings");
+	settings.values = JSON.parse(str);
+	if(!settings.values){
+		settings.values = ["3", "0", "5", "0", "50"];
+	}
+}
