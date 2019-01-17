@@ -7,46 +7,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
-		<div class="container">
-			<section class="sliders">
-				<div class="sliderLabels">
+		<!-- <div class="container"> -->
+		<div class="sidebar">
+			<button class="sidebarToggle">&#9679;</button>
+			<div class="sliders">
+				<div class="sliderLabel">
 					<span class="sliderText">Breathe in</span>
 					<span id="breatheInText" class="sliderValueText"></span>
 				</div>
 				<input type="range" min="1" max="10" value="1" id="breatheIn" class="actualSlider">
 				
-				<div class="sliderLabels">
+				<div class="sliderLabel">
 					<span class="sliderText">Pause</span>
 					<span id="breatheInPauseText" class="sliderValueText"></span>
 				</div>
 				<input type="range" min="0" max="10" value="0" id="breatheInPause" class="actualSlider">
 
-				<div class="sliderLabels">
+				<div class="sliderLabel">
 					<span class="sliderText">Breathe out</span> 
 					<span id="breatheOutText" class="sliderValueText"></span>
 				</div>
 				<input type="range" min="1" max="10" value="3" id="breatheOut" class="actualSlider">
 
-				<div class="sliderLabels">
+				<div class="sliderLabel">
 					<span class="sliderText">Pause</span>
 					<span id="breatheOutPauseText" class="sliderValueText"></span>
 				</div>
 				<input type="range" min="0" max="10" value="0" id="breatheOutPause" class="actualSlider">
 
-				<div class="sliderLabels">
+				<div class="sliderLabel">
 					<span class="sliderText">Size</span> 
 					<span id="sizeText" class="sliderValueText"></span>
 				</div>
 				<input type="range" min="1" max="400" value="50" id="size" class="actualSlider">
-			</section>
-
-			<section class="breathe">
-				<div id="anim"></div>
-			</section>
-
-			<section class="end">
-			</section>
+			</div>
 		</div>
+
+		<div class="breathe">
+			<div id="anim"></div>
+		</div>
+		
 		<script src="anime.min.js"></script>
 		<script src="script.js"></script>
 	</body>
