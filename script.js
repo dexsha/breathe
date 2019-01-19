@@ -1,5 +1,5 @@
 let settings = {
-	values: ["3", "0", "5", "0", "50"],	//	"breatheIn", "breatheInPause", "breatheOut", "breatheOutPause", "size"
+	values: ["3", "0", "5", "0", "50", false],	//	"breatheIn", "breatheInPause", "breatheOut", "breatheOutPause", "size", "nightMode"
 };
 
 loadFromLocalStorage();
@@ -41,7 +41,7 @@ let animation = anime({
 });
 
 function saveSettings(){
-	settings.values = [breatheIn.value, breatheInPause.value, breatheOut.value, breatheOutPause.value, size.value];
+	settings.values = [breatheIn.value, breatheInPause.value, breatheOut.value, breatheOutPause.value, size.value, nightModeCheckbox.checked];
 	saveToLocalStorage();
 }
 
@@ -88,11 +88,42 @@ function setValues(e){
 
 let sidebar = document.querySelector('.sidebar');
 let sidebarToggle = document.querySelector('.sidebarToggle');
+let actualSlider = document.getElementsByClassName('actualSlider');
+let animClass = document.querySelector('.animClass');
 
-sidebarToggle.addEventListener('click', function() {
+sidebarToggle.addEventListener('click', function(){
 	sidebarToggle.classList.toggle('is-closed');
 	sidebar.classList.toggle('is-closed');
-})
+});
+
+let nightModeCheckbox = document.querySelector('.nightModeCheckbox');
+
+nightModeCheckbox.addEventListener('change', function(){
+	setNightMode();
+	saveSettings();
+});
+
+function setNightMode(){
+	if(nightModeCheckbox.checked){
+		document.querySelector('.container').classList.toggle('containerNightMode');
+		sidebar.classList.toggle('sidebarNightMode');
+		sidebarToggle.classList.toggle('sidebarToggleNightMode');
+		animClass.style.removeProperty('background-color');
+		animClass.classList.toggle('animNightMode');
+		for(let i = 0; i<actualSlider.length; i++){
+			actualSlider[i].classList.toggle('actualSliderNightMode');
+		}
+	}
+	else{
+		document.querySelector('.container').classList.toggle('containerNightMode');
+		sidebar.classList.toggle('sidebarNightMode');
+		sidebarToggle.classList.toggle('sidebarToggleNightMode');
+		animClass.classList.toggle('animNightMode');
+		for(let i = 0; i<actualSlider.length; i++){
+			actualSlider[i].classList.toggle('actualSliderNightMode');
+		}
+	}
+}
 
 function saveToLocalStorage(){
 	let str = JSON.stringify(settings.values);
@@ -103,6 +134,18 @@ function loadFromLocalStorage(){
 	let str = localStorage.getItem("settings");
 	settings.values = JSON.parse(str);
 	if(!settings.values){
-		settings.values = ["3", "0", "5", "0", "50"];
+		settings.values = ["3", "0", "5", "0", "50", false];
 	}
 }
+
+function nightMode(){
+	if(settings.values[5] === true){
+		nightModeCheckbox.checked = true;
+		setNightMode();
+	}
+	else{
+		nightModeCheckbox.checked = false;
+	}
+}
+
+nightMode();
