@@ -238,7 +238,11 @@ body {
 }
 
 .nightModeCheckbox {
+	background-color: #4B6589;
+}
 
+.checkmarkNightMode {
+	background-color: #4B6589;
 }
 
 button, input[type="submit"], input[type="reset"] {

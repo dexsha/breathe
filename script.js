@@ -97,6 +97,7 @@ sidebarToggle.addEventListener('click', function(){
 });
 
 let nightModeCheckbox = document.querySelector('.nightModeCheckbox');
+let checkmark = document.getElementsByClassName('checkmark');
 
 nightModeCheckbox.addEventListener('change', function(){
 	setNightMode();
@@ -113,6 +114,9 @@ function setNightMode(){
 		for(let i = 0; i<actualSlider.length; i++){
 			actualSlider[i].classList.toggle('actualSliderNightMode');
 		}
+		for(let i = 0; i<checkmark.length; i++){
+			checkmark[i].classList.toggle('checkmarkNightMode');
+		}
 	}
 	else{
 		document.querySelector('.container').classList.toggle('containerNightMode');
@@ -121,6 +125,9 @@ function setNightMode(){
 		animClass.classList.toggle('animNightMode');
 		for(let i = 0; i<actualSlider.length; i++){
 			actualSlider[i].classList.toggle('actualSliderNightMode');
+		}
+		for(let i = 0; i<checkmark.length; i++){
+			checkmark[i].classList.toggle('checkmarkNightMode');
 		}
 	}
 }
@@ -149,3 +156,39 @@ function nightMode(){
 }
 
 nightMode();
+
+let fullscreenCheckbox = document.querySelector('.fullscreenCheckbox');
+
+fullscreenCheckbox.addEventListener('change', function(){
+	if(fullscreenCheckbox.checked){
+		openFullscreen();
+	} else{
+		closeFullscreen();
+	}
+});
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
