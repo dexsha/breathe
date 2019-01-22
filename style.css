@@ -67,6 +67,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	position: absolute;
 	z-index: 1;
 	width: 30%;
@@ -175,6 +176,14 @@ body {
 .actualSliderNightMode::-webkit-slider-thumb {
 	background-color: #79A1DA;
 	border: 1px solid #79A1DA;
+}
+
+.checkboxSettings {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 100%;
 }
 
 .checkboxContainer {
