@@ -33,26 +33,26 @@ sizeText.innerHTML = (size.value * 4) + "px";
 let animation = anime({
   targets: '#anim',
   scale: [
-  	{ value: 4, duration: (breatheIn.value * 1000), delay: (breatheOutPause.value * 1000)},
-  	{ value: 1, duration: (breatheOut.value * 1000), delay: (breatheInPause.value * 1000)}
+  	{ value: 4, duration: (breatheIn.value * 1000), delay: (breatheOutPause.value * 1000) },
+  	{ value: 1, duration: (breatheOut.value * 1000), delay: (breatheInPause.value * 1000) }
   ],
   loop: true,
   easing: 'linear'
 });
 
-function saveSettings(){
+function saveSettings() {
 	settings.values = [breatheIn.value, breatheInPause.value, breatheOut.value, breatheOutPause.value, size.value, nightModeCheckbox.checked];
 	saveToLocalStorage();
 }
 
-function setSliderValues(){
+function setSliderValues() {
 	breatheInText.innerHTML = breatheIn.value + "s";
 	breatheInPauseText.innerHTML = breatheInPause.value + "s";
 	breatheOutText.innerHTML = breatheOut.value + "s";
 	breatheOutPauseText.innerHTML = breatheOutPause.value  + "s";	
 }
 
-function setAnimationValues(){
+function setAnimationValues() {
 	let breatheInAnimation = animation.animations[0].tweens[0];
 	let breatheOutAnimation = animation.animations[0].tweens[1];
 
@@ -68,7 +68,7 @@ function setAnimationValues(){
 	animation.duration = ((breatheIn.value * 1000) + (breatheInPause.value * 1000) + (breatheOut.value * 1000) + (breatheOutPause.value * 1000));
 }
 
-function setAnimationSize(){
+function setAnimationSize() {
 	sizeText.innerHTML = (size.value * 4) + "px";
 	document.getElementById("anim").style.width = size.value + "px";
 	document.getElementById("anim").style.height = size.value + "px";
@@ -77,7 +77,7 @@ function setAnimationSize(){
 let sliders = document.querySelector(".sliders");
 sliders.addEventListener("input", setValues, false);
 
-function setValues(e){
+function setValues(e) {
 	if(e.target !== e.currentTarget) {
 		setSliderValues();
 		setAnimationValues();
@@ -91,7 +91,7 @@ let sidebarToggle = document.querySelector('.sidebarToggle');
 let actualSlider = document.getElementsByClassName('actualSlider');
 let animClass = document.querySelector('.animClass');
 
-sidebarToggle.addEventListener('click', function(){
+sidebarToggle.addEventListener('click', function() {
 	sidebarToggle.classList.toggle('is-closed');
 	sidebar.classList.toggle('is-closed');
 });
@@ -99,45 +99,44 @@ sidebarToggle.addEventListener('click', function(){
 let nightModeCheckbox = document.querySelector('.nightModeCheckbox');
 let checkmark = document.getElementsByClassName('checkmark');
 
-nightModeCheckbox.addEventListener('change', function(){
+nightModeCheckbox.addEventListener('change', function() {
 	setNightMode();
 	saveSettings();
 });
 
-function setNightMode(){
-	if(nightModeCheckbox.checked){
+function setNightMode() {
+	if(nightModeCheckbox.checked) {
 		document.querySelector('.container').classList.toggle('containerNightMode');
 		sidebar.classList.toggle('sidebarNightMode');
 		sidebarToggle.classList.toggle('sidebarToggleNightMode');
 		animClass.style.removeProperty('background-color');
 		animClass.classList.toggle('animNightMode');
-		for(let i = 0; i<actualSlider.length; i++){
+		for(let i = 0; i<actualSlider.length; i++) {
 			actualSlider[i].classList.toggle('actualSliderNightMode');
 		}
-		for(let i = 0; i<checkmark.length; i++){
+		for(let i = 0; i<checkmark.length; i++) {
 			checkmark[i].classList.toggle('checkmarkNightMode');
 		}
-	}
-	else{
+	} else {
 		document.querySelector('.container').classList.toggle('containerNightMode');
 		sidebar.classList.toggle('sidebarNightMode');
 		sidebarToggle.classList.toggle('sidebarToggleNightMode');
 		animClass.classList.toggle('animNightMode');
-		for(let i = 0; i<actualSlider.length; i++){
+		for(let i = 0; i<actualSlider.length; i++) {
 			actualSlider[i].classList.toggle('actualSliderNightMode');
 		}
-		for(let i = 0; i<checkmark.length; i++){
+		for(let i = 0; i<checkmark.length; i++) {
 			checkmark[i].classList.toggle('checkmarkNightMode');
 		}
 	}
 }
 
-function saveToLocalStorage(){
+function saveToLocalStorage() {
 	let str = JSON.stringify(settings.values);
 	localStorage.setItem("settings", str);
 }
 
-function loadFromLocalStorage(){
+function loadFromLocalStorage() {
 	let str = localStorage.getItem("settings");
 	settings.values = JSON.parse(str);
 	if(!settings.values){
@@ -145,12 +144,11 @@ function loadFromLocalStorage(){
 	}
 }
 
-function nightMode(){
-	if(settings.values[5] === true){
+function nightMode() {
+	if(settings.values[5] === true) {
 		nightModeCheckbox.checked = true;
 		setNightMode();
-	}
-	else{
+	} else {
 		nightModeCheckbox.checked = false;
 	}
 }
@@ -159,10 +157,10 @@ nightMode();
 
 let fullscreenCheckbox = document.querySelector('.fullscreenCheckbox');
 
-fullscreenCheckbox.addEventListener('change', function(){
-	if(fullscreenCheckbox.checked){
+fullscreenCheckbox.addEventListener('change', function() {
+	if(fullscreenCheckbox.checked) {
 		openFullscreen();
-	} else{
+	} else {
 		closeFullscreen();
 	}
 });
@@ -191,4 +189,32 @@ function closeFullscreen() {
   } else if (document.msExitFullscreen) { /* IE/Edge */
     document.msExitFullscreen();
   }
+}
+
+let currentSound;
+
+function playAudio(id) {
+	if(currentSound != undefined) {
+		currentSound.pause();
+	}
+	let sound = document.getElementById("audio" + id);
+	currentSound = sound;
+	sound.play();
+}
+
+function pauseAudio(id) {
+	let sound = document.getElementById("audio" + id);
+	sound.pause();
+}
+
+function backgroundColor() {
+	let bgColor = document.getElementById("customBackground");
+
+	document.querySelector('.container').style.backgroundColor = bgColor.value;
+}
+
+function animColor() {
+	let animColor = document.getElementById("customAnim");
+
+	animClass.style.backgroundColor = customAnim.value;
 }
