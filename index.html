@@ -41,7 +41,8 @@
 						<span id="sizeText" class="sliderValueText"></span>
 					</div>
 					<input type="range" min="1" max="100" value="50" id="size" class="actualSlider">
-
+				</div>
+				<div class="checkboxSettings">
 					<div class="sliderLabel">
 						<span class="sliderText">Night mode</span>
 						<label class="checkboxContainer">
@@ -58,6 +59,29 @@
 						</label>
 					</div>
 				</div>
+
+				<div class="sliderLabel">
+					<audio id="audio1">
+						<source src="sounds/1.mp3" type="audio/mpeg">
+					</audio>
+					<audio id="audio2">
+						<source src="sounds/2.mp3" type="audio/mpeg">
+					</audio>
+					<audio id="audio3">
+						<source src="sounds/3.mp3" type="audio/mpeg">
+					</audio>
+
+					<span class="sliderText">Sounds</span>
+				</div>
+					<span>Sound 1 <button onclick="playAudio(1)" type="button">Play</button> <button onclick="pauseAudio(1)" type="button">Pause</button></span>
+					<span>Sound 2 <button onclick="playAudio(2)" type="button">Play</button> <button onclick="pauseAudio(2)" type="button">Pause</button></span>
+					<span>Sound 3 <button onclick="playAudio(3)" type="button">Play</button> <button onclick="pauseAudio(3)" type="button">Pause</button></span>
+					<!--&#9658; <b>&#8545;-->
+				<div class="sliderLabel">
+					<span class="sliderText">Custom colors</span>
+				</div>
+				<span>Background <input type="text" id="customBackground" placeholder="HEX Color Code (#FFFFF)"><button onclick="backgroundColor()" type="button">Set</button></span>
+				<span>Anim <input type="text" id="customAnim" placeholder="HEX Color Code (#FFFFF)"><button onclick="animColor()" type="button">Set</button></span>
 			</div>
 
 			<div class="breathe">
