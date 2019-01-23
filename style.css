@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poiret+One');
-
 /* Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -263,6 +261,70 @@ button, input[type="submit"], input[type="reset"] {
 	cursor: pointer;
 	outline: inherit;
 }
+
+.checkboxSettings .sliderLabel {
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	margin: 0 0 5px 0;
+}
+
+.dropdownSettings {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+}
+
+.dropdownSettings .sliderLabel {
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	margin: 0 0 5px 0;
+}
+
+.soundList {
+	display: none;
+}
+
+.soundList span {
+	margin: 0 0 5px 0;
+}
+
+.soundListDisplay {
+	display: flex;
+	flex-direction: column;
+}
+
+.colorSettingList {
+	display: none;
+}
+
+.colorSettingsListDisplay {
+	display: flex;
+	flex-direction: column;
+}
+
+.fa-angle-down:before {
+	display: inline-block;
+	font-size: 28px;
+	width: 25px;
+}
+
+.fa-angle-down:hover {
+	cursor: pointer;
+}
+
+.fa-play:before {
+	margin: 0 0 0 5px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+
 
 /*input[type=range] {
   -webkit-appearance: none;
