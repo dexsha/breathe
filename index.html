@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>breathe</title>	
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 		<link rel="stylesheet" href="style.css" />
 		<link rel="icon" type="image/ico" href="images/favico.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,6 +43,7 @@
 					</div>
 					<input type="range" min="1" max="100" value="50" id="size" class="actualSlider">
 				</div>
+
 				<div class="checkboxSettings">
 					<div class="sliderLabel">
 						<span class="sliderText">Night mode</span>
@@ -60,7 +62,7 @@
 					</div>
 				</div>
 
-				<div class="sliderLabel">
+				<div class="dropdownSettings">
 					<audio id="audio1">
 						<source src="sounds/1.mp3" type="audio/mpeg">
 					</audio>
@@ -71,17 +73,29 @@
 						<source src="sounds/3.mp3" type="audio/mpeg">
 					</audio>
 
-					<span class="sliderText">Sounds</span>
+					<div class="sliderLabel">
+						<span class="sliderText">Sounds</span>
+						<i class="fas fa-angle-down soundListArrow"></i>
+					</div>
+					<div class="soundList">
+						<span>Sound 1 <i class="fas fa-play"></i></span>
+						<span>Sound 2 <i class="fas fa-play"></i></span>
+						<span>Sound 3 <i class="fas fa-play"></i></span>
+						<!--<span>Sound 2 <button onclick="playAudio(2)" type="button" class="playButton">Play</button> <button onclick="pauseAudio(2)" type="button" class="pauseButton">Pause</button></span>-->
+					</div>
 				</div>
-					<span>Sound 1 <button onclick="playAudio(1)" type="button">Play</button> <button onclick="pauseAudio(1)" type="button">Pause</button></span>
-					<span>Sound 2 <button onclick="playAudio(2)" type="button">Play</button> <button onclick="pauseAudio(2)" type="button">Pause</button></span>
-					<span>Sound 3 <button onclick="playAudio(3)" type="button">Play</button> <button onclick="pauseAudio(3)" type="button">Pause</button></span>
-					<!--&#9658; <b>&#8545;-->
-				<div class="sliderLabel">
-					<span class="sliderText">Custom colors</span>
+
+
+				<div class="dropdownSettings">
+					<div class="sliderLabel">
+						<span class="sliderText">Custom colors</span>
+						<i class="fas fa-angle-down colorSettingsArrow"></i>
+					</div>
+					<div class="colorSettingList">
+						<span>Background <input type="text" id="customBackground" placeholder="HEX Color Code (#FFFFFF)"><button onclick="backgroundColor()" type="button">Set</button></span>
+						<span>Anim <input type="text" id="customAnim" placeholder="HEX Color Code (#FFFFFF)"><button onclick="animColor()" type="button">Set</button></span>
+					</div>
 				</div>
-				<span>Background <input type="text" id="customBackground" placeholder="HEX Color Code (#FFFFF)"><button onclick="backgroundColor()" type="button">Set</button></span>
-				<span>Anim <input type="text" id="customAnim" placeholder="HEX Color Code (#FFFFF)"><button onclick="animColor()" type="button">Set</button></span>
 			</div>
 
 			<div class="breathe">
