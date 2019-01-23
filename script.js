@@ -209,12 +209,34 @@ function pauseAudio(id) {
 
 function backgroundColor() {
 	let bgColor = document.getElementById("customBackground");
-
 	document.querySelector('.container').style.backgroundColor = bgColor.value;
 }
 
 function animColor() {
 	let animColor = document.getElementById("customAnim");
-
 	animClass.style.backgroundColor = customAnim.value;
+}
+
+const dropdownArrowSounds = document.querySelector(".soundListArrow");
+const dropdownArrowColors = document.querySelector(".colorSettingsArrow");
+const soundList = document.querySelector(".soundList");
+const colorSettingList = document.querySelector(".colorSettingList")
+
+
+dropdownArrowSounds.addEventListener('click', function() {
+	dropdownSounds();
+});
+
+dropdownArrowColors.addEventListener('click', function() {
+	dropdownColors();
+});
+
+function dropdownSounds() {
+	soundList.classList.toggle('soundListDisplay');
+	dropdownArrowSounds.classList.toggle('fa-angle-up');
+}
+
+function dropdownColors() {
+	colorSettingList.classList.toggle('colorSettingsListDisplay');
+	dropdownArrowColors.classList.toggle('fa-angle-up');
 }
