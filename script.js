@@ -191,16 +191,43 @@ function closeFullscreen() {
   }
 }
 
+let soundList = document.querySelector('.soundList');
+let playPauseIcon = document.querySelectorAll('.audioID');
+let audioID = '.audioID';
 let currentSound;
+let isPlaying = false;
+//fas fa-pause
+
+soundList.addEventListener('click', function(event) {
+	let closest = event.target.closest(audioID);
+	if(closest && soundList.contains(closest)) {
+		playAudio(event.target.dataset.id);
+	}
+	playPauseIcon.forEach(function(id) {
+		//console.log("test");
+	})
+	event.target.classList.toggle('fa-play');
+	event.target.classList.toggle('fa-pause');
+	//console.log(event.target.classList);
+});
 
 function playAudio(id) {
-	if(currentSound != undefined) {
+	let sound = document.getElementById("audio" + id);
+
+	if(currentSound != undefined) {  //	If audio is playing, pause it
 		currentSound.pause();
 	}
-	let sound = document.getElementById("audio" + id);
 	currentSound = sound;
-	sound.play();
+	if(isPlaying) {
+		sound.pause();
+		isPlaying = false;
+	} else {
+		sound.play();
+		isPlaying = true;
+	}
+	console.log(isPlaying);
 }
+
 
 function pauseAudio(id) {
 	let sound = document.getElementById("audio" + id);
@@ -219,7 +246,6 @@ function animColor() {
 
 const dropdownArrowSounds = document.querySelector(".soundListArrow");
 const dropdownArrowColors = document.querySelector(".colorSettingsArrow");
-const soundList = document.querySelector(".soundList");
 const colorSettingList = document.querySelector(".colorSettingList")
 
 
