@@ -3,12 +3,12 @@
 	<head>
 		<title>breathe</title>	
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		<link rel="stylesheet" href="style.css" />
-		<link rel="icon" type="image/ico" href="images/favico.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/css/inlineplayer.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="icon" type="image/ico" href="assets/images/favico.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
-		<!-- <div class="container"> -->
 		<div class="container">
 			<div class="sidebar">
 				<button class="sidebarToggle">&#9679;</button>
@@ -63,28 +63,18 @@
 				</div>
 
 				<div class="dropdownSettings">
-					<audio id="audio1">
-						<source src="sounds/1.mp3" type="audio/mpeg">
-					</audio>
-					<audio id="audio2">
-						<source src="sounds/2.mp3" type="audio/mpeg">
-					</audio>
-					<audio id="audio3">
-						<source src="sounds/3.mp3" type="audio/mpeg">
-					</audio>
-
 					<div class="sliderLabel">
 						<span class="sliderText">Sounds</span>
 						<i class="fas fa-angle-down soundListArrow"></i>
 					</div>
 					<div class="soundList">
-						<span>Sound 1 <i data-id="1" class="fas fa-play audioID"></i></i></span>
-						<span>Sound 2 <i data-id="2" class="fas fa-play audioID"></i></i></span>
-						<span>Sound 3 <i data-id="3" class="fas fa-play audioID"></i></i></span>
-						<!--<span>Sound 2 <button onclick="playAudio(2)" type="button" class="playButton">Play</button> <button onclick="pauseAudio(2)" type="button" class="pauseButton">Pause</button></span>-->
+						<ul class="graphic">
+						  <li><a href="sounds/1.mp3">Sound 1</a></li>
+						  <li><a href="sounds/2.mp3">Sound 2</a></li>
+						  <li><a href="sounds/3.mp3">Sound 3</a></li>
+					 	</ul>
 					</div>
 				</div>
-
 
 				<div class="dropdownSettings">
 					<div class="sliderLabel">
@@ -103,7 +93,9 @@
 			</div>
 		</div>
 
-		<script src="anime.min.js"></script>
-		<script src="script.js"></script>
+		<script src="assets/scripts/anime.min.js"></script>
+		<script src="assets/scripts/soundmanager2-jsmin.js"></script>
+		<script src="assets/scripts/inlineplayer.js"></script>
+		<script src="assets/scripts/script.js"></script>
 	</body>
 </html>

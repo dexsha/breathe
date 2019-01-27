@@ -191,49 +191,6 @@ function closeFullscreen() {
   }
 }
 
-let soundList = document.querySelector('.soundList');
-let playPauseIcon = document.querySelectorAll('.audioID');
-let audioID = '.audioID';
-let currentSound;
-let isPlaying = false;
-//fas fa-pause
-
-soundList.addEventListener('click', function(event) {
-	let closest = event.target.closest(audioID);
-	if(closest && soundList.contains(closest)) {
-		playAudio(event.target.dataset.id);
-	}
-	playPauseIcon.forEach(function(id) {
-		//console.log("test");
-	})
-	event.target.classList.toggle('fa-play');
-	event.target.classList.toggle('fa-pause');
-	//console.log(event.target.classList);
-});
-
-function playAudio(id) {
-	let sound = document.getElementById("audio" + id);
-
-	if(currentSound != undefined) {  //	If audio is playing, pause it
-		currentSound.pause();
-	}
-	currentSound = sound;
-	if(isPlaying) {
-		sound.pause();
-		isPlaying = false;
-	} else {
-		sound.play();
-		isPlaying = true;
-	}
-	console.log(isPlaying);
-}
-
-
-function pauseAudio(id) {
-	let sound = document.getElementById("audio" + id);
-	sound.pause();
-}
-
 function backgroundColor() {
 	let bgColor = document.getElementById("customBackground");
 	document.querySelector('.container').style.backgroundColor = bgColor.value;
@@ -258,6 +215,7 @@ dropdownArrowColors.addEventListener('click', function() {
 });
 
 function dropdownSounds() {
+	let soundList = document.querySelector('.soundList');
 	soundList.classList.toggle('soundListDisplay');
 	dropdownArrowSounds.classList.toggle('fa-angle-up');
 }

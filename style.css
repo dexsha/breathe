@@ -48,7 +48,7 @@ table {
 body {
 	font-family: 'Helvetica', 'Arial', sans-serif;
 	font-size: 1em;
-	background-image: url(images/bg.png);
+	background-image: url(../images/bg.png);
 }
 
 .container {
@@ -318,6 +318,13 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .fa-play:before {
+	margin: 0 0 0 5px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.fa-pause:before {
 	margin: 0 0 0 5px;
 	display: inline-block;
 	font-size: 14px;
