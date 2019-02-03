@@ -29,6 +29,8 @@ let sizeText = document.getElementById("sizeText");
 size.value = settings.values[4];
 sizeText.innerHTML = (size.value * 4) + "px";
 
+// settings.testValues = [breatheIn.value, breatheInPause.value, breatheOut.value, breatheOutPause.value, size.value, nightMode.value];  // Experimental value saving
+
 //	Initializes anime.js
 let animation = anime({
   targets: '#anim',
@@ -201,10 +203,15 @@ function animColor() {
 	animClass.style.backgroundColor = customAnim.value;
 }
 
+const dropdownArrowTimer = document.querySelector(".timerArrow");
 const dropdownArrowSounds = document.querySelector(".soundListArrow");
 const dropdownArrowColors = document.querySelector(".colorSettingsArrow");
 const colorSettingList = document.querySelector(".colorSettingList")
 
+
+dropdownArrowTimer.addEventListener('click', function() {
+	dropdownTimer();
+});
 
 dropdownArrowSounds.addEventListener('click', function() {
 	dropdownSounds();
@@ -213,6 +220,28 @@ dropdownArrowSounds.addEventListener('click', function() {
 dropdownArrowColors.addEventListener('click', function() {
 	dropdownColors();
 });
+
+const timerSlider = document.getElementById('timerSlider');
+const timerText = document.getElementById('timerText');
+const timerTone = document.getElementById('timerTone');
+
+timerText.innerHTML = timerSlider.value  + "m";
+
+timerSlider.addEventListener("input", function() {
+	timerText.innerHTML = timerSlider.value + "m";
+})
+
+function startTimer() {
+	setTimeout(function() {
+		timerTone.play();
+	}, timerSlider.value * 1000);
+}
+
+function dropdownTimer() {
+	let timerSettings = document.querySelector('.timerSettings');
+	timerSettings.classList.toggle('timerSettingsDisplay');
+	dropdownArrowTimer.classList.toggle('fa-angle-up');
+}
 
 function dropdownSounds() {
 	let soundList = document.querySelector('.soundList');
@@ -224,3 +253,14 @@ function dropdownColors() {
 	colorSettingList.classList.toggle('colorSettingsListDisplay');
 	dropdownArrowColors.classList.toggle('fa-angle-up');
 }
+
+const gradientPresets = document.getElementById('gradientPresets');
+const gradientOne = document.getElementById('gradient1');
+
+gradientPresets.addEventListener('click', gradientChange);
+
+function gradientChange() {
+	document.querySelector('.container').style.backgroundColor = "#" + gradientOne.dataset.colorone;
+	animClass.style.backgroundColor = "#" + gradientOne.dataset.colortwo;
+}
+

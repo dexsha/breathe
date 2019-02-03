@@ -285,6 +285,19 @@ button, input[type="submit"], input[type="reset"] {
 	margin: 0 0 5px 0;
 }
 
+.timerSettings {
+	display: none;
+}
+
+.timerSettingsDisplay {
+	display: flex;
+	justify-content: space-between;
+}
+
+#timerSlider {
+	width: 60%;
+}
+
 .soundList {
 	display: none;
 }
@@ -329,6 +342,31 @@ button, input[type="submit"], input[type="reset"] {
 	display: inline-block;
 	font-size: 14px;
 	line-height: 20px;
+}
+
+#gradient1 {
+	width: 20px;
+	height: 20px;
+	background-color: #FEE140;
+	background-image: -webkit-linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
+	background-image: -moz-linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
+	background-image: -o-linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
+	background-image: linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
+}
+
+#gradient2 {
+	width: 20px;
+	height: 20px;
+	background-color: #F05053;
+	background-image: -webkit-linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
+	background-image: -moz-linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
+	background-image: -o-linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
+	background-image: linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
+}
+
+#gradientPresets {
+	display: flex;
+	flex-direction: row;
 }
 
 
