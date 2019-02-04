@@ -184,7 +184,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	width: 300px;
-	min-height: 50px;
+	min-height: 150px;
 }
 
 .checkboxSettings {
