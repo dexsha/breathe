@@ -135,12 +135,14 @@ body {
 	align-items: center;
 	flex-direction: column;
 	width: 300px;
+	min-height: 200px;
 }
 
 .sliderLabel {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	min-width: 135px;
 	width: 50%;
 	margin: 0 0 10px 0;
 }
@@ -174,6 +176,15 @@ body {
 .actualSliderNightMode::-webkit-slider-thumb {
 	background-color: #79A1DA;
 	border: 1px solid #79A1DA;
+}
+
+.options {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	width: 300px;
+	min-height: 50px;
 }
 
 .checkboxSettings {
@@ -291,11 +302,17 @@ button, input[type="submit"], input[type="reset"] {
 
 .timerSettingsDisplay {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 50%;
+}
+
+.timerSettingsDisplay .sliderValueText {
+	margin: 0 0 10px 0;
 }
 
 #timerSlider {
-	width: 60%;
+	width: 120px;
 }
 
 .soundList {
@@ -318,6 +335,7 @@ button, input[type="submit"], input[type="reset"] {
 .colorSettingsListDisplay {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 .fa-angle-down:before {
@@ -344,9 +362,30 @@ button, input[type="submit"], input[type="reset"] {
 	line-height: 20px;
 }
 
+#gradientPresets {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0 0 10px 0;
+}
+
+.gradienticon {
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+}
+
+
+#gradient0 {
+	background-color: #282828;
+	background-image: -webkit-linear-gradient(90deg, #282828 49%, #79A1DA 50%);
+	background-image: -moz-linear-gradient(90deg, #282828 49%, #79A1DA 50%);
+	background-image: -o-linear-gradient(90deg, #282828 49%, #79A1DA 50%);
+	background-image: linear-gradient(90deg, #282828 49%, #79A1DA 50%);
+}
+
+
 #gradient1 {
-	width: 20px;
-	height: 20px;
 	background-color: #FEE140;
 	background-image: -webkit-linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
 	background-image: -moz-linear-gradient(90deg, #FEE140 49%, #FA709A 50%);
@@ -355,8 +394,6 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #gradient2 {
-	width: 20px;
-	height: 20px;
 	background-color: #F05053;
 	background-image: -webkit-linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
 	background-image: -moz-linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
@@ -364,10 +401,6 @@ button, input[type="submit"], input[type="reset"] {
 	background-image: linear-gradient(90deg, #F05053 49%, #E1EEC3 50%);
 }
 
-#gradientPresets {
-	display: flex;
-	flex-direction: row;
-}
 
 
 
