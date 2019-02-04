@@ -225,10 +225,10 @@ const timerSlider = document.getElementById('timerSlider');
 const timerText = document.getElementById('timerText');
 const timerTone = document.getElementById('timerTone');
 
-timerText.innerHTML = timerSlider.value  + "m";
+timerText.innerHTML = timerSlider.value  + " min";
 
 timerSlider.addEventListener("input", function() {
-	timerText.innerHTML = timerSlider.value + "m";
+	timerText.innerHTML = timerSlider.value + " min";
 })
 
 function startTimer() {
@@ -255,12 +255,16 @@ function dropdownColors() {
 }
 
 const gradientPresets = document.getElementById('gradientPresets');
-const gradientOne = document.getElementById('gradient1');
 
-gradientPresets.addEventListener('click', gradientChange);
+gradientPresets.addEventListener('click', function(e) {
+	if(e.target.className === 'gradienticon') {
+		gradientChange(e.target.dataset.gradientid);
+	}
+});
 
-function gradientChange() {
-	document.querySelector('.container').style.backgroundColor = "#" + gradientOne.dataset.colorone;
-	animClass.style.backgroundColor = "#" + gradientOne.dataset.colortwo;
+function gradientChange(id) {
+	const gradient = document.querySelectorAll('.gradienticon');
+	document.querySelector('.container').style.backgroundColor = "#" + gradient[id].dataset.colorone;
+	animClass.style.backgroundColor = "#" + gradient[id].dataset.colortwo;
 }
 
