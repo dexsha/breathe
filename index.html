@@ -44,64 +44,68 @@
 					<input type="range" min="1" max="100" value="50" id="size" class="actualSlider">
 				</div>
 
-				<div class="checkboxSettings">
-					<div class="sliderLabel">
-						<span class="sliderText">Night mode</span>
-						<label class="checkboxContainer">
-							<input type="checkbox" class="nightModeCheckbox">
-							<span class="checkmark"></span>
-						</label>
+				
+				<div class="options">
+					<div class="checkboxSettings">
+						<div class="sliderLabel">
+							<span class="sliderText">Night mode</span>
+							<label class="checkboxContainer">
+								<input type="checkbox" class="nightModeCheckbox">
+								<span class="checkmark"></span>
+							</label>
+						</div>
+
+						<div class="sliderLabel">
+							<span class="sliderText">Fullscreen</span>
+							<label class="checkboxContainer">
+								<input type="checkbox" class="fullscreenCheckbox">
+								<span class="checkmark"></span>
+							</label>
+						</div>
 					</div>
 
-					<div class="sliderLabel">
-						<span class="sliderText">Fullscreen</span>
-						<label class="checkboxContainer">
-							<input type="checkbox" class="fullscreenCheckbox">
-							<span class="checkmark"></span>
-						</label>
+					<audio id="timerTone">
+						<source src="assets/sounds/tone.mp3" type="audio/mpeg">
+					</audio>
+					<div class="dropdownSettings">
+						<div class="sliderLabel">
+							<span class="sliderText">Timer</span>
+							<i class="fas fa-angle-down timerArrow"></i>
+						</div>
+						<div class="timerSettings">
+						  <input type="range" min="1" max="90" value="10" id="timerSlider" class="actualSlider">
+						  <span id="timerText" class="sliderValueText"></span>
+						  <button onclick="startTimer()" type="button">Start timer</button>
+						</div>
 					</div>
-				</div>
 
-				<audio id="timerTone">
-					<source src="assets/sounds/tone.mp3" type="audio/mpeg">
-				</audio>
-				<div class="dropdownSettings">
-					<div class="sliderLabel">
-						<span class="sliderText">Timer</span>
-						<i class="fas fa-angle-down timerArrow"></i>
+					<div class="dropdownSettings">
+						<div class="sliderLabel">
+							<span class="sliderText">Sounds</span>
+							<i class="fas fa-angle-down soundListArrow"></i>
+						</div>
+						<div class="soundList">
+							<ul class="graphic">
+							  <li><a href="assets/sounds/1.mp3">Sound 1</a></li>
+							  <li><a href="assets/sounds/2.mp3">Sound 2</a></li>
+							  <li><a href="assets/sounds/3.mp3">Sound 3</a></li>
+						 	</ul>
+						</div>
 					</div>
-					<div class="timerSettings">
-					  <input type="range" min="1" max="90" value="10" id="timerSlider" class="actualSlider">
-					  <span id="timerText" class="sliderValueText"></span>
-					  <button onclick="startTimer()" type="button">Start timer</button>
-					</div>
-				</div>
 
-				<div class="dropdownSettings">
-					<div class="sliderLabel">
-						<span class="sliderText">Sounds</span>
-						<i class="fas fa-angle-down soundListArrow"></i>
-					</div>
-					<div class="soundList">
-						<ul class="graphic">
-						  <li><a href="assets/sounds/1.mp3">Sound 1</a></li>
-						  <li><a href="assets/sounds/2.mp3">Sound 2</a></li>
-						  <li><a href="assets/sounds/3.mp3">Sound 3</a></li>
-					 	</ul>
-					</div>
-				</div>
-
-				<div class="dropdownSettings">
-					<div class="sliderLabel">
-						<span class="sliderText">Custom colors</span>
-						<i class="fas fa-angle-down colorSettingsArrow"></i>
-					</div>
-					<div class="colorSettingList">
-						<span>Background <input type="text" id="customBackground" placeholder="HEX Color Code (#FFFFFF)"><button onclick="backgroundColor()" type="button">Set</button></span>
-						<span>Anim <input type="text" id="customAnim" placeholder="HEX Color Code (#FFFFFF)"><button onclick="animColor()" type="button">Set</button></span>
-						<div id="gradientPresets">
-							<div id="gradient1" data-gradientid="1" data-colorone="FEE140" data-colortwo="FA709A"></div>
-							<!-- <div id="gradient2" data-gradientid="2" data-colorone="FEE140" data-colortwo="FA709A"></div> -->
+					<div class="dropdownSettings">
+						<div class="sliderLabel">
+							<span class="sliderText">Custom colors</span>
+							<i class="fas fa-angle-down colorSettingsArrow"></i>
+						</div>
+						<div class="colorSettingList">
+							<div id="gradientPresets">
+								<div id="gradient0" class="gradienticon" data-gradientid="0" data-colorone="282828" data-colortwo="79A1DA"></div>
+								<div id="gradient1" class="gradienticon" data-gradientid="1" data-colorone="FEE140" data-colortwo="FA709A"></div>
+								<div id="gradient2" class="gradienticon" data-gradientid="2" data-colorone="F05053" data-colortwo="E1EEC3"></div>
+							</div>
+							<span>Background <input type="text" id="customBackground" placeholder="HEX Color Code (#FFFFFF)"><button onclick="backgroundColor()" type="button">Set</button></span>
+							<span>Anim <input type="text" id="customAnim" placeholder="HEX Color Code (#FFFFFF)"><button onclick="animColor()" type="button">Set</button></span>
 						</div>
 					</div>
 				</div>
